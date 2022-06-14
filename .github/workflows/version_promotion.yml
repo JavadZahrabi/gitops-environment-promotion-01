@@ -1,0 +1,35 @@
+name: version_promotion_dev_staging
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'envs/dev/version.yml'
+
+jobs:
+
+  promote-version:
+    runs-on: ubuntu-latest
+    name: Promote version from dev to staging
+
+    steps:
+    
+        - name: Checkout gitops-environment-promotion-01
+          uses: actions/checkout@v3
+          with:
+            repository: JavadZahrabi/gitops-environment-promotion-01
+            path: ./gitops-environment-promotion-01
+
+        - name: copy file
+          run: |
+              cp -R ./gitops-environment-promotion-01/envs/dev/version.yml ./gitops-environment-promotion-01/envs/staging
+
+
+        - name: Push version to staging
+          run: |
+            cd ./gitops-environment-promotion-01
+            git add .
+            git config user.name JavadZahrabi
+            git config user.email ja.zahrabi@gmail.com
+            git commit -am "version.yml promoted to staging"
+            git push
