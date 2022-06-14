@@ -8,5 +8,5 @@ resources:
 
 patchesStrategicMerge:
 - version.yml
-- settings.yml
+- prod_settings.yml
 - replicas.yml
