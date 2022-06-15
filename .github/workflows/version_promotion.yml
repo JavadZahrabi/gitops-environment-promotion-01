@@ -33,4 +33,4 @@ jobs:
             git config user.name JavadZahrabi
             git config user.email ja.zahrabi@gmail.com
             git commit -am "version.yml promoted to staging"
-            git push
+            git push --set-upstream origin deploy-to-staging
