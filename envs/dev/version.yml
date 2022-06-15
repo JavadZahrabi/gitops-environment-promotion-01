@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: webserver-simple
-        image: docker.io/javadza/environment-promotion:1.0
+        image: docker.io/javadza/environment-promotion:2022-06-15-efa3d7e
