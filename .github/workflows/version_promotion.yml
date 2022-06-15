@@ -28,6 +28,7 @@ jobs:
         - name: Push version to staging
           run: |
             cd ./gitops-environment-promotion-01
+            git checkout -b "deploy-to-staging"
             git add .
             git config user.name JavadZahrabi
             git config user.email ja.zahrabi@gmail.com
